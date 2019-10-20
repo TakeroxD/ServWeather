@@ -5,7 +5,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 //Areas
-app.get(' ',function(req,res){
+app.get('/',function(req,res){
 	res.send(`<h1>Esta es la main view casi vacía</h1>,
 			  <h3>Agrega en el URL /weather?search=LUGAR_QUE_QUIERES_CONSULTAR :)</h3>`)
 })
