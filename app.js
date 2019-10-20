@@ -5,6 +5,12 @@ const app = express()
 const port = process.env.PORT || 3000
 
 //Areas
+app.get(' ',function(req,res){
+	res.send(`<h1>Esta es la main view casi vacía</h1>,
+			  <h3>Agrega en el URL /weather?search=LUGAR_QUE_QUIERES_CONSULTAR :)</h3>`)
+})
+
+
 app.get('/weather',function(req,res){
 	if(!req.query.search){
 		res.send({error: 'Necesitas escribir /weather?search=LUGAR_QUE_QUIERES_CONSULTAR'})
@@ -34,6 +40,8 @@ app.get('/weather',function(req,res){
 		})
 	})	
 })
+
+
  app.get('*', function(req,res){
  	res.send({Message: 'Jaja ke pex esa ruta no existe BB',
  		      Disclaimer: 'Este mensaje fue considerado adecuado ;)',
