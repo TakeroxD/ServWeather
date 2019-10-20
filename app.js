@@ -26,7 +26,11 @@ app.get('/weather',function(req,res){
 					  summary: response.summary,
 					  temperature: response.temperature,
 					  humidity: response.humidity,
-					  precipProbability: response.precipProbability})
+					  precipProbability: response.precipProbability,
+					  string: 'Para '+name+' '+loc+' se pronostica '+response.summary+
+					  ', la temperatura actual es '+response.temperature+
+					  ' con humedad de '+response.humidity+
+					  'y '+response.precipProbability+' de probabilidad de lluvia'})
 		})
 	})	
 })
