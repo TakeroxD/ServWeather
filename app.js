@@ -13,19 +13,18 @@ app.get('/',function(req,res){
 
 app.get('/weather',function(req,res){
 	if(!req.query.search){
-		res.send({error: 'Necesitas escribir /weather?search=LUGAR_QUE_QUIERES_CONSULTAR'})
+		return res.send({error: 'Necesitas escribir /weather?search=LUGAR_QUE_QUIERES_CONSULTAR'})
 	}
 	weather.getLocation(req.query.search,function(error,response){
 		if (error){
-			res.send({error: 'Error intentado obtener localización :(' + error})
+			return res.send({error: 'Error intentado obtener localización :(' + error})
 		}
 		var name = response.place_name
 		var center = response.center
 		var loc = '['+center[1]+','+center[0]+']'
 		weather.getWeather(center[1],center[0], function(error, response){
 			if (error) {
-				//return res.send('Error intentado obtener pronóstico :('{error: error})
-				res.send({error: 'Error intentado obtener pronóstico :(' + error})
+				return res.send({error: 'Error intentado obtener pronóstico :(' + error})
 			}
 			res.send({name,
 					  loc,
